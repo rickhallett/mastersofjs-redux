@@ -104,3 +104,66 @@ If you find something interesting, see if you can write a test for it. This help
 [Please stop using classes in javascript](https://everyday.codes/javascript/please-stop-using-classes-in-javascript/)
 
 [The only testing helpers you are likely to need](https://jasmine.github.io/api/3.7/global)
+
+---
+
+<br>
+
+## Accountability ideas...
+
+Create a slackbot that automates the following:
+
+1. Awards members 100pts for an accountability update (what I did, what I plan to do)
+2. Awards members 150pts for a static code share, however small (today I learned)
+3. Awards members 200pts for a code review of another members share, however small
+4. Awards members 500pts for submitting an issue to a library if they discovery a legitimate bug
+5. Awards members 2500pts for landing a PR request on any outstanding library issues
+6. Updates a real time store of member points, and allocates a rediculous yet coveted club 'rank' depending on number of points, sorted in descending order. Over time, it will get harder and harder to stay in Gandalf's pants, basically. Rank doesn't define heirarchy or leadership; it is more like the length of the hair on your face than that. But it also means you might be a cool person.
+
+### Ranks
+
+The Gandalf
+Gandalf's Pants
+Gandalf's Robes
+Gandalf's Trousers
+Elder III
+Elder II
+Elder I
+Emperor
+Supreme Commander
+Supreme General
+Supreme Warlock
+Master of Fear
+Commander of the City
+Captain of the City
+Captain
+Lieutenant-General
+Lieutenant of the Watch
+Commandant of the Line
+Corporal
+Lance Corporal
+Chief of Beasts
+Officer of the Order
+Sergeant-Major
+Major
+Colonel of Mages
+Royal Paladin
+Archwarrior
+Archpriest
+Reaper
+Squad Mage
+Spec-Ops Infantry
+Sniper
+Thunder Trooper
+Zealot
+Covert Infantry
+City Guard
+Seaman
+Private
+Fist
+Warrior
+Archer
+Scholar
+Apprentice
+Cadet
+Spud
