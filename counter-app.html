@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Redux basic example</title>
+        <link rel="stylesheet" href="lib/jasmine-3.7.1/jasmine.css" />
+
+        <script src="lib/jasmine-3.7.1/jasmine.js"></script>
+        <script src="lib/jasmine-3.7.1/jasmine-html.js"></script>
+        <script src="lib/jasmine-3.7.1/boot.js"></script>
+
+        <!-- include source files here... -->
+        <script src="./lib/redux-4.1.0.js"></script>
+
+        <!-- include spec files here... -->
+        <script src="spec/app.spec.js"></script>
+
+        <link rel="stylesheet" href="lib/demo.css" />
+    </head>
+    <body>
+        <div>
+            <!-- <h3>Redux: Basic example</h3> -->
+            <div class="demo-app-ui">
+                <div>Clicked: <span id="value">0</span> times</div>
+                <div>
+                    <button id="increment">+</button>
+                    <button id="decrement">-</button>
+                </div>
+                <div>
+                    <button id="incrementIfOdd">Increment if odd</button>
+                    <button id="incrementAsync">Increment async</button>
+                </div>
+            </div>
+        </div>
+        <div class="demo-app_html-reporter">
+            <a id="linker" href="./SpecRunner.html">Go to Redux SpecRunner</a>
+        </div>
+
+        <script src="./src/app.js"></script>
+    </body>
+</html>

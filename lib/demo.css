@@ -1,0 +1,33 @@
+#linker {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.demo-app_html-reporter {
+    width: 100%;
+    background-color: #eee;
+    padding: 5px;
+    margin: -8px;
+    font-size: 11px;
+    font-family: Monaco, 'Lucida Console', monospace;
+    line-height: 14px;
+    color: #333;
+}
+
+.demo-app_html-reporter a {
+    text-decoration: none;
+}
+
+.demo-app_html-reporter a:hover {
+    text-decoration: underline;
+}
+
+.demo-app-ui {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+}
