@@ -13,6 +13,8 @@ function counterReducer(state = initialState, action) {
             return { ...state, value: state.value + 1 };
         case 'counter/decremented':
             return { ...state, value: state.value - 1 };
+        case 'counter/reset':
+            return { ...state, value: 0 };
         default:
             // If the reducer doesn't care about this action type,
             // return the existing state unchanged
@@ -20,26 +22,30 @@ function counterReducer(state = initialState, action) {
     }
 }
 
-const increment = () => {
+export const increment = () => {
     store.dispatch({ type: 'counter/incremented' });
 };
 
-const decrement = () => {
+export const decrement = () => {
     store.dispatch({ type: 'counter/decremented' });
 };
 
-const incrementIfOdd = () => {
+export const incrementIfOdd = () => {
     // We can write logic to decide what to do based on the state
     if (store.getState().value % 2 !== 0) {
         store.dispatch({ type: 'counter/incremented' });
     }
 };
 
-const incrementAsync = () => {
+export const incrementAsync = () => {
     // We can also write async logic that interacts with the store
     setTimeout(function () {
         store.dispatch({ type: 'counter/incremented' });
-    }, 1000);
+    }, 500);
+};
+
+export const resetCounter = () => {
+    store.dispatch({ type: 'counter/reset' });
 };
 
 const bindHandlersToEventListeners = () => {
@@ -55,7 +61,7 @@ const bindHandlersToEventListeners = () => {
 
 // Create a new Redux store with the `createStore` function,
 // and use the `counterReducer` for the update logic
-const store = Redux.createStore(counterReducer);
+export const store = Redux.createStore(counterReducer);
 
 const domPresent = Boolean(document.getElementById('value'));
 
@@ -70,7 +76,7 @@ if (domPresent) {
     };
 } else {
     render = () => {
-        console.log('store:', store);
+        console.log('store:', store.getState());
     };
 }
 

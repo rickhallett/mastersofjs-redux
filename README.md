@@ -5,14 +5,16 @@
 1. Clone repo. Yup, that's it! Nice.
 
 2. If you want to mimic hot reloading, just install live-server on your machine if you haven't already. You can either use the VS Code extension, or install via npm and serve the SpecRunner.html from the command line. If you serve SpecRunner.html with this, any saved file changes will execute immediately adding a few precious seconds of reclaimed time to your lifespan.
-   <br>
+
+<br>
 
 ## Usage Steps
 
 1. The demo app (counter-app.html) has been provided as a means to demonstrate the primary function of Redux.js. Its rendered on another Jasmine SpecRunner page, so that this app itself can be tested and documented, should it be extended in the future.
 
-2. SpecRunner.html is the primary entrance point, and runs the spec/redux.spec.js file. This is where tests that illustrate the behaviour of Redux live, and can be extended indefinitely. It can be broken down into smaller files if the tests get
-   <br>
+2. SpecRunner.html is the primary entrance point, and runs the spec/redux.spec.js file. This is where tests that illustrate the behaviour of Redux live, and can be extended indefinitely, broken out into modules etc.
+
+<br>
 
 ---
 

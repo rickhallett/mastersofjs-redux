@@ -1,43 +1,20 @@
-function counterReducer(state = initialState, action) {
-    // Reducers usually look at the type of action that happened
-    // to decide how to update the state
-    switch (action.type) {
-        case 'counter/incremented':
-            return { ...state, value: state.value + 1 };
-        case 'counter/decremented':
-            return { ...state, value: state.value - 1 };
-        default:
-            // If the reducer doesn't care about this action type,
-            // return the existing state unchanged
-            return state;
-    }
-}
+import {
+    store,
+    increment,
+    decrement,
+    incrementAsync,
+    resetCounter,
+    incrementIfOdd,
+} from '../src/app.js';
 
 describe('Counter App Spec', () => {
-    let counterReducer;
-    let initialState = { value: 0 };
-
     beforeEach(() => {
-        counterReducer = function counterReducer(state = initialState, action) {
-            // Reducers usually look at the type of action that happened
-            // to decide how to update the state
-            switch (action.type) {
-                case 'counter/incremented':
-                    return { ...state, value: state.value + 1 };
-                case 'counter/decremented':
-                    return { ...state, value: state.value - 1 };
-                default:
-                    // If the reducer doesn't care about this action type,
-                    // return the existing state unchanged
-                    return state;
-            }
-        };
+        resetCounter();
     });
 
     afterEach(() => {});
 
     it('Can create a redux store', () => {
-        const store = Redux.createStore(counterReducer);
         expect(Object.keys(store)).toEqual([
             'dispatch',
             'subscribe',
@@ -45,5 +22,41 @@ describe('Counter App Spec', () => {
             'replaceReducer',
             '@@observable',
         ]);
+    });
+
+    it('can increment a counter held in state', () => {
+        expect(store.getState().value).toEqual(0);
+        increment();
+        expect(store.getState().value).toEqual(1);
+        increment();
+        expect(store.getState().value).toEqual(2);
+    });
+
+    it('can decrement a counter held in state', () => {
+        expect(store.getState().value).toEqual(0);
+        decrement();
+        expect(store.getState().value).toEqual(-1);
+        decrement();
+        expect(store.getState().value).toEqual(-2);
+    });
+
+    it('can increment a counter held in state, if that value is odd', () => {
+        expect(store.getState().value).toEqual(0);
+        incrementIfOdd();
+        expect(store.getState().value).toEqual(0);
+        increment();
+        expect(store.getState().value).toEqual(1);
+        incrementIfOdd();
+        expect(store.getState().value).toEqual(2);
+    });
+
+    it('can increment a counter held in state asynchronously', (done) => {
+        expect(store.getState().value).toEqual(0);
+        incrementAsync();
+        expect(store.getState().value).toEqual(0);
+        setTimeout(() => {
+            expect(store.getState().value).toEqual(1);
+            done();
+        }, 501);
     });
 });

@@ -1,29 +1,20 @@
-describe('Redux', () => {
-    let counterReducer;
-    let initialState = { value: 0 };
+import {
+    store,
+    increment,
+    decrement,
+    incrementAsync,
+    resetCounter,
+    incrementIfOdd,
+} from '../src/app.js';
 
+describe('Redux', () => {
     beforeEach(() => {
-        counterReducer = function counterReducer(state = initialState, action) {
-            // Reducers usually look at the type of action that happened
-            // to decide how to update the state
-            switch (action.type) {
-                case 'counter/incremented':
-                    return { ...state, value: state.value + 1 };
-                case 'counter/decremented':
-                    return { ...state, value: state.value - 1 };
-                default:
-                    // If the reducer doesn't care about this action type,
-                    // return the existing state unchanged
-                    return state;
-            }
-        };
+        resetCounter();
     });
 
     afterEach(() => {});
 
-    it('Can create a redux store', () => {
-        const store = Redux.createStore(counterReducer);
-        console.log(Object.keys(store));
+    it('can create a redux store', () => {
         expect(Object.keys(store)).toEqual([
             'dispatch',
             'subscribe',
@@ -31,5 +22,30 @@ describe('Redux', () => {
             'replaceReducer',
             '@@observable',
         ]);
+    });
+
+    it('check app will function outside of a DOM environment', (done) => {
+        expect(store.getState().value).toEqual(0);
+
+        increment();
+        expect(store.getState().value).toEqual(1);
+
+        decrement();
+        expect(store.getState().value).toEqual(0);
+
+        incrementIfOdd();
+        expect(store.getState().value).toEqual(0);
+
+        increment();
+        incrementIfOdd();
+        expect(store.getState().value).toEqual(2);
+
+        incrementAsync();
+        expect(store.getState().value).toEqual(2);
+
+        setTimeout(() => {
+            expect(store.getState().value).toEqual(3);
+            done();
+        }, 501);
     });
 });
