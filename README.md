@@ -14,6 +14,8 @@
 
 2. SpecRunner.html is the primary entrance point, and runs the spec/redux.spec.js file. This is where tests that illustrate the behaviour of Redux live, and can be extended indefinitely, broken out into modules etc.
 
+3. Place a breakpoint(s) in the browser developer console, or use the 'debugger' keyword anywhere in any of the loaded scripts to halt time and space and do a Gandalf. Be creative here; set conditional breakpoints (for loops, certain kinds of exceptions, control flow etc). If necessary, you can black box any libraries you want the debugger to 'skip over' in its presentation of the execution stack to the UI.
+
 <br>
 
 ---
